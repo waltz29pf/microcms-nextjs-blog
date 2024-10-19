@@ -1,4 +1,4 @@
-import { profileImage, profileName } from "@/app/constant/profile";
+import { profileImage, profileName } from "@/app/constants/profileInfo";
 import { BlogPost } from "@/app/types";
 import { format } from "date-fns";
 import Image from "next/image";
