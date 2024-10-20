@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 WaltzTech 個人技術ブログ
 
-## Getting Started
+## 📝 プロジェクト概要
 
-First, run the development server:
+Next.jsとmicroCMS を組み合わせて作成した個人ブログサイトです。
+Web 開発に関する記事、チュートリアル、個人的な洞察を共有することを目的としています。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 主な機能
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 📱 全デバイスで最適な表示を実現するレスポンシブデザイン
+- 🌓 ダークモード対応
+- 🔍 SEO フレンドリーな構造
+- 📊 カテゴリーとアーカイブによるコンテンツ整理
+- 💻 コードスニペットのシンタックスハイライト
+- 🔄 サーバーサイドレンダリングと静的生成によるパフォーマンス向上
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ 使用技術
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js](https://nextjs.org/) - サーバーサイドレンダリングと静的サイト生成のための React フレームワーク
+- [React](https://reactjs.org/) - ユーザーインターフェース構築のための JavaScript ライブラリ
+- [TypeScript](https://www.typescriptlang.org/) - 型付け可能な JavaScript のスーパーセット
+- [Tailwind CSS](https://tailwindcss.com/) - ユーティリティファースト CSS フレームワーク
+- [Shadcn/ui](https://ui.shadcn.com/) - Radix UI と Tailwind CSS で構築された再利用可能なコンポーネント
+- [microCMS](https://microcms.io/) - コンテンツ管理のためのヘッドレス CMS
+- [Tanstack Query](https://tanstack.com/query/latest) - TS/JS 用の強力な非同期状態管理ライブラリ
+- [date-fns](https://date-fns.org/) - モダンな JavaScript 日付ユーティリティライブラリ
+- [highlight.js](https://highlightjs.org/) - コードスニペットのシンタックスハイライト
 
-## Learn More
+## 📁 プロジェクト構造
 
-To learn more about Next.js, take a look at the following resources:
+- `app/`: Next.js のアプリディレクトリ（ページと API ルートを含む）
+- `components/`: 再利用可能な React コンポーネント
+- `lib/`: ユーティリティ関数とヘルパー
+- `public/`: 静的アセット
+- `styles/`: グローバルスタイルと Tailwind CSS の設定
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👨‍💻 作者
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Waltz**
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GitHub: [@YQh9Mh3181jzEJ5](https://github.com/YQh9Mh3181jzEJ5)
+- ウェブサイト: [https://your-website.com](https://your-website.com)
