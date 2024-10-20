@@ -2,7 +2,7 @@
 
 ## 📝 プロジェクト概要
 
-Next.jsとmicroCMS を組み合わせて作成した個人ブログサイトです。
+Next.js と microCMS を組み合わせて作成した個人ブログサイトです。
 Web 開発に関する記事、チュートリアル、個人的な洞察を共有することを目的としています。
 
 ## 🌟 主な機能
@@ -39,4 +39,4 @@ Web 開発に関する記事、チュートリアル、個人的な洞察を共�
 **Waltz**
 
 - GitHub: [@YQh9Mh3181jzEJ5](https://github.com/YQh9Mh3181jzEJ5)
-- ウェブサイト: [https://your-website.com](https://your-website.com)
+- ウェブサイト: [https://microcms-nextjs-blog-tau.vercel.app/blog](https://microcms-nextjs-blog-tau.vercel.app/blog)
