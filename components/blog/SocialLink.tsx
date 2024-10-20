@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 interface SocialLinkProps {
@@ -12,8 +13,13 @@ export const SocialLink: React.FC<SocialLinkProps> = ({
   label,
 }) => (
   <Button variant="outline" size="icon" className="flex-1">
-    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+    >
       {icon}
-    </a>
+    </Link>
   </Button>
 );
