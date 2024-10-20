@@ -1,5 +1,5 @@
 import { BlogPost } from "@/app/types";
-import BlogItem from "@/components/blog/BlogItem";
+import BlogCard from "@/components/blog/BlogCard";
 
 interface BlogListProps {
   blogPosts: BlogPost[];
@@ -12,7 +12,7 @@ const BlogList = ({ blogPosts }: BlogListProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
       {blogPosts.map((blogPost) => (
-        <BlogItem key={blogPost.id} blogPost={blogPost} />
+        <BlogCard key={blogPost.id} blogPost={blogPost} />
       ))}
     </div>
   );

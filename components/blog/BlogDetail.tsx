@@ -1,16 +1,17 @@
 "use client";
 
-import { profileImage, profileName } from "@/app/constants/profileInfo";
+import { PROFILE } from "@/app/constants/profileInfo";
 import { BlogPost } from "@/app/types";
 import { format } from "date-fns";
 import Image from "next/image";
+import BlogCard from "./BlogCard";
 
 interface BlogDetailProps {
   blogPost: BlogPost;
+  relatedBlogs: BlogPost[];
 }
 
-// ブログ詳細
-const BlogDetail = ({ blogPost }: BlogDetailProps) => {
+const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
   const categoryColor = blogPost.category.color || "gray";
   const formattedDate = format(new Date(blogPost.createdAt), "yyyy/MM/dd");
 
@@ -39,7 +40,7 @@ const BlogDetail = ({ blogPost }: BlogDetailProps) => {
             <h2 className="font-bold text-3xl">{blogPost.title}</h2>
             <div className="flex items-center gap-2">
               <Image
-                src={profileImage}
+                src={PROFILE.IMAGE_PATH}
                 width={32}
                 height={32}
                 alt="profile"
@@ -47,7 +48,7 @@ const BlogDetail = ({ blogPost }: BlogDetailProps) => {
                 priority={false}
               />
               <div className="flex flex-col text-xs text-gray-500">
-                <span>{profileName}</span>
+                <span>{PROFILE.NAME}</span>
                 <time dateTime={blogPost.createdAt}>{formattedDate}</time>
               </div>
             </div>
@@ -55,16 +56,19 @@ const BlogDetail = ({ blogPost }: BlogDetailProps) => {
         </div>
 
         <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
-        {/* {relatedBlogs.length > 0 && (
-        <div>
-          <div className="font-bold border-l-4 border-black pl-2">関連記事</div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {relatedBlogs.map((blogPost) => (
-              <BlogItem key={blogPost.id} blogPost={blogPost} />
-            ))}
+
+        {relatedBlogs.length > 0 && (
+          <div>
+            <div className="font-bold border-l-4 border-black pl-2">
+              こんな記事も読まれています
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-8">
+              {relatedBlogs.map((blogPost) => (
+                <BlogCard key={blogPost.id} blogPost={blogPost} />
+              ))}
+            </div>
           </div>
-        </div>
-      )} */}
+        )}
       </div>
     </article>
   );

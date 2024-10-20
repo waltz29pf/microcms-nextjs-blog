@@ -1,6 +1,6 @@
 import { PROFILE } from "@/app/constants/profileInfo";
 import { BlogPost } from "@/app/types";
-import { format } from "date-fns";
+import { formatDate } from "@/app/utils/dateUtils";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
@@ -10,10 +10,10 @@ interface BlogItemProps {
   isRanking?: boolean;
 }
 
-const BlogItem = ({ blogPost, isRanking }: BlogItemProps) => {
+const BlogCard = ({ blogPost, isRanking }: BlogItemProps) => {
   const { id, title, image, category, ranking, createdAt } = blogPost;
   const categoryColor = category.color || "gray";
-  const formattedDate = format(new Date(createdAt), "yyyy/MM/dd");
+  const formattedDate = formatDate(createdAt);
 
   return (
     <article>
@@ -69,4 +69,4 @@ const BlogItem = ({ blogPost, isRanking }: BlogItemProps) => {
   );
 };
 
-export default BlogItem;
+export default BlogCard;

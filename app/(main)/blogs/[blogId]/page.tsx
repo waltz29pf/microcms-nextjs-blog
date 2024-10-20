@@ -1,5 +1,6 @@
-import { fetchBlogPostById } from "@/app/api/blogApi";
+import { fetchBlogPostById, fetchRelatedBlogPosts } from "@/app/api/blogApi";
 import Loading from "@/app/loading";
+import { BlogPost } from "@/app/types";
 
 import BlogDetail from "@/components/blog/BlogDetail";
 import LayoutWithSidebar from "@/components/layout/LayoutWithSIdebar";
@@ -14,26 +15,20 @@ interface BlogDetailPageProps {
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   try {
     const blogPost = await fetchBlogPostById(params.blogId);
-
-    // let relatedBlogs: BlogPost[] = [];
+    let relatedBlogs: BlogPost[] = [];
 
     // 同じカテゴリのブログを取得;
-    // if (blogPost?.category) {
-    //   const relatedBlogsResponse = await microCmsClient.getList<BlogPost>({
-    //     endpoint: "blog",
-    //     queries: {
-    //       filters: `category[equals]${blogPost.category.id}[and]id[not_equals]${params.blogId}`,
-    //       limit: 6,
-    //       orders: "-publishedAt",
-    //     },
-    //   });
-    //   relatedBlogs = relatedBlogsResponse.contents;
-    // }
+    if (blogPost?.category) {
+      relatedBlogs = await fetchRelatedBlogPosts(
+        blogPost.category.id,
+        params.blogId
+      );
+    }
 
     return (
       <LayoutWithSidebar>
         <Suspense fallback={<Loading />}>
-          <BlogDetail blogPost={blogPost} />
+          <BlogDetail blogPost={blogPost} relatedBlogs={relatedBlogs} />
         </Suspense>
       </LayoutWithSidebar>
     );
