@@ -1,6 +1,6 @@
 export const NAVIGATION_ITEMS = [
-  // { title: "Home", href: "/" }, // TODO: Change to "/" when the home page is ready
-  // { title: "About", href: "/about" }, // TODO: Change to "/about" when the about page is ready
+  { title: "Home", href: "/blog" },
+  { title: "About", href: "/about" },
   { title: "Blog", href: "/blog" },
 ] as const;
 

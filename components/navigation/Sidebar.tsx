@@ -52,6 +52,7 @@ export default function Sidebar() {
             href={PROFILE.SOCIAL_LINKS.X}
             icon={<FaXTwitter />}
             label="Xプロフィールへ"
+            
           />
           <SocialLink
             href={PROFILE.SOCIAL_LINKS.GITHUB}

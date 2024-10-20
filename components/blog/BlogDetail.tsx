@@ -12,7 +12,6 @@ interface BlogDetailProps {
 }
 
 const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
-  const categoryColor = blogPost.category.color || "gray";
   const formattedDate = format(new Date(blogPost.createdAt), "yyyy/MM/dd");
 
   return (
@@ -28,13 +27,6 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
               className="object-cover"
               priority={false}
             />
-
-            <div
-              className="absolute top-0 left-0 text-xs text-white py-1.5 px-4"
-              style={{ backgroundColor: categoryColor }}
-            >
-              {blogPost.category.name}
-            </div>
           </div>
           <div className="space-y-4">
             <h2 className="font-bold text-3xl">{blogPost.title}</h2>
@@ -51,6 +43,10 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
                 <span>{PROFILE.NAME}</span>
                 <time dateTime={blogPost.createdAt}>{formattedDate}</time>
               </div>
+
+              <span className="text-xs text-gray-700 bg-gray-200 p-3 py-1 rounded-full">
+                {blogPost.category.name}
+              </span>
             </div>
           </div>
         </div>
