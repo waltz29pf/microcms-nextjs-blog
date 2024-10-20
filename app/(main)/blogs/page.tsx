@@ -2,16 +2,27 @@ import { fetchBlogPosts } from "@/app/api/blogApi";
 import Loading from "@/app/loading";
 import BlogList from "@/components/blog/BlogList";
 import LayoutWithSidebar from "@/components/layout/LayoutWithSIdebar";
+import { blogPerPage } from "@/lib/utils";
 import { Suspense } from "react";
 
-export default async function BlogListPage() {
-  try {
-    const { contents } = await fetchBlogPosts();
+interface BlogPageProps {
+  searchParams: {
+    [key: string]: string | undefined;
+  };
+}
 
+export default async function BlogListPage({ searchParams }: BlogPageProps) {
+  try {
+    const { page, perPage } = searchParams;
+
+    const limit = typeof perPage === "string" ? parseInt(perPage) : blogPerPage;
+    const offset = typeof page === "string" ? (parseInt(page) - 1) * limit : 0;
+    const { contents, totalCount } = await fetchBlogPosts({ limit, offset });
+    const pageCount = Math.ceil(totalCount / limit);
     return (
       <LayoutWithSidebar>
         <Suspense fallback={<Loading />}>
-          <BlogList blogPosts={contents} />
+          <BlogList blogPosts={contents} pageCount={pageCount} />
         </Suspense>
       </LayoutWithSidebar>
     );

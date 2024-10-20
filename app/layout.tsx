@@ -1,3 +1,4 @@
+import QueryProvider from "@/components/providers/QueryProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata, Viewport } from "next";
 import { M_PLUS_1 } from "next/font/google";
@@ -33,7 +34,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <QueryProvider>{children}</QueryProvider>
         </ThemeProvider>
       </body>
     </html>

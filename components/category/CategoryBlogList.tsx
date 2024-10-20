@@ -1,20 +1,30 @@
+"use client";
+
 import { BlogPost } from "@/app/types";
-import BlogCard from "@/components/blog/BlogCard";
 import { blogPerPage } from "@/lib/utils";
+import BlogCard from "../blog/BlogCard";
 import PaginationButton from "../pagers/PaginationButton";
 
-interface BlogListProps {
+interface CategoryProps {
   blogPosts: BlogPost[];
   pageCount: number;
+  totalCount: number;
 }
 
-const BlogList = ({ blogPosts, pageCount }: BlogListProps) => {
+const CategoryBlogList = ({
+  blogPosts,
+  pageCount,
+  totalCount,
+}: CategoryProps) => {
   if (blogPosts.length === 0) {
     return <div>ブログ記事がありません。</div>;
   }
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+      <h2 className="font-bold text-2xl mb-4">
+        Category - {blogPosts[0]?.category.name} ({totalCount})
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
         {blogPosts.map((blogPost) => (
           <BlogCard key={blogPost.id} blogPost={blogPost} />
         ))}
@@ -26,4 +36,4 @@ const BlogList = ({ blogPosts, pageCount }: BlogListProps) => {
   );
 };
 
-export default BlogList;
+export default CategoryBlogList;
