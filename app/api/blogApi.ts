@@ -12,7 +12,7 @@ export const fetchBlogPosts = async ({
 }): Promise<{ contents: BlogPost[]; totalCount: number }> => {
   try {
     const response = await microCmsClient.getList<BlogPost>({
-      endpoint: "blogs",
+      endpoint: "blog",
       queries: {
         limit: limit || 10,
         offset: offset || 0,
@@ -49,7 +49,7 @@ export const fetchBlogPostById = async (
 ): Promise<BlogPost> => {
   try {
     const contents = await microCmsClient.getListDetail<BlogPost>({
-      endpoint: "blogs",
+      endpoint: "blog",
       contentId,
     });
     return contents;
@@ -69,7 +69,7 @@ export const fetchRelatedBlogPosts = async (
 ): Promise<BlogPost[]> => {
   try {
     const response = await microCmsClient.getList<BlogPost>({
-      endpoint: "blogs",
+      endpoint: "blog",
       queries: {
         filters: `category[equals]${categoryId}[and]id[not_equals]${currentBlogId}`,
         limit,
@@ -97,7 +97,7 @@ export const fetchBlogPostsByCategory = async ({
 }): Promise<{ contents: BlogPost[]; totalCount: number }> => {
   try {
     const response = await microCmsClient.getList<BlogPost>({
-      endpoint: "blogs",
+      endpoint: "blog",
       queries: {
         limit: limit || 10,
         offset: offset || 0,
@@ -127,7 +127,7 @@ export const fetchBlogPostsByArchive = async ({
 }): Promise<{ archiveBlogPosts: BlogPost[]; totalCount: number }> => {
   try {
     const response = await microCmsClient.getList<BlogPost>({
-      endpoint: "blogs",
+      endpoint: "blog",
       queries: {
         limit: limit || 10,
         offset: offset || 0,

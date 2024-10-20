@@ -5,7 +5,7 @@ interface AboutProps {
 const About = ({ content }: AboutProps) => {
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-blue-400"
+      className="flex items-center justify-center min-h-screen"
       dangerouslySetInnerHTML={{ __html: content }}
     />
   );

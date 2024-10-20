@@ -1,12 +1,4 @@
-import { NAVIGATION_ITEMS } from "@/app/constants/navigationItems";
 import { ThemeToggle } from "@/components/navigation/ThemeToggle";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
 const Navigation = () => {
@@ -14,11 +6,11 @@ const Navigation = () => {
     <header className="px-8 py-4 shadow">
       <div className="flex items-center justify-between">
         <div className="flex-shrink-0">
-          <Link href="/" className="font-bold text-xl">
+          <Link href="/blog" className="font-bold text-xl">
             WaltzTech
           </Link>
         </div>
-        <nav aria-label="Main navigation">
+        {/* <nav aria-label="Main navigation">
           <NavigationMenu>
             <NavigationMenuList>
               {NAVIGATION_ITEMS.map((item) => (
@@ -34,7 +26,7 @@ const Navigation = () => {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
-        </nav>
+        </nav> */}
         <div className="flex-shrink-0">
           <ThemeToggle />
         </div>

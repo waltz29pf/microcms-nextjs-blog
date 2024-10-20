@@ -12,7 +12,7 @@ export const BlogListItem = ({ blog }: Props) => {
   return (
     <li className="border">
       <article className="flex flex-col h-full">
-        <Link href={`/blogs/${blog.id}`} className="border group">
+        <Link href={`/blog/${blog.id}`} className="border group">
           <div className="aspect-video relative overflow-hidden">
             <Image
               src={blog.image.url}

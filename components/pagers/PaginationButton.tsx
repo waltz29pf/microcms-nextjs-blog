@@ -2,6 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+} from "@/components/ui/pagination";
+import {
   ChevronLeftIcon,
   ChevronRightIcon,
   DoubleArrowLeftIcon,
@@ -86,117 +91,130 @@ const PaginationButton = ({
   }, [pageCount, page, siblingCount]);
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 pb-10">
-      <Button
-        variant="outline"
-        size="icon"
-        className="h-8 w-8"
-        onClick={() => {
-          startTransition(() => {
-            router.push(
-              `${pathname}?${createQueryString({
-                page: 1,
-                perPage: perPage ?? null,
-              })}`
-            );
-          });
-        }}
-        disabled={Number(page) === 1 || isPending}
-      >
-        <DoubleArrowLeftIcon className="h-5 w-5" aria-hidden="true" />
-        <span className="sr-only">First page</span>
-      </Button>
-      <Button
-        variant="outline"
-        size="icon"
-        className="h-8 w-8"
-        onClick={() => {
-          startTransition(() => {
-            router.push(
-              `${pathname}?${createQueryString({
-                page: Number(page) - 1,
-                perPage: perPage ?? null,
-              })}`
-            );
-          });
-        }}
-        disabled={Number(page) === 1 || isPending}
-      >
-        <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-        <span className="sr-only">Previous page</span>
-      </Button>
-      {paginationRange.map((pageNumber, i) =>
-        pageNumber === "..." ? (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
           <Button
-            aria-label="Page separator"
-            key={i}
             variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            disabled
-          >
-            ...
-          </Button>
-        ) : (
-          <Button
-            aria-label={`Page ${pageNumber}`}
-            key={i}
-            variant={Number(page) === pageNumber ? "default" : "outline"}
             size="icon"
             className="h-8 w-8"
             onClick={() => {
               startTransition(() => {
                 router.push(
                   `${pathname}?${createQueryString({
-                    page: pageNumber,
+                    page: 1,
                     perPage: perPage ?? null,
                   })}`
                 );
               });
             }}
-            disabled={isPending}
+            disabled={Number(page) === 1 || isPending}
           >
-            {pageNumber}
+            <DoubleArrowLeftIcon className="h-5 w-5" aria-hidden="true" />
+            <span className="sr-only">First page</span>
           </Button>
-        )
-      )}
-      <Button
-        variant="outline"
-        size="icon"
-        className="h-8 w-8"
-        onClick={() => {
-          startTransition(() => {
-            router.push(
-              `${pathname}?${createQueryString({
-                page: Number(page) + 1,
-                perPage: perPage ?? null,
-              })}`
-            );
-          });
-        }}
-        disabled={Number(page) === (pageCount ?? 10) || isPending}
-      >
-        <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-        <span className="sr-only">Next page</span>
-      </Button>
-      <Button
-        variant="outline"
-        size="icon"
-        className="h-8 w-8"
-        onClick={() => {
-          router.push(
-            `${pathname}?${createQueryString({
-              page: pageCount ?? 10,
-              perPage: perPage ?? null,
-            })}`
-          );
-        }}
-        disabled={Number(page) === (pageCount ?? 10) || isPending}
-      >
-        <DoubleArrowRightIcon className="h-5 w-5" aria-hidden="true" />
-        <span className="sr-only">Last page</span>
-      </Button>
-    </div>
+        </PaginationItem>
+        <PaginationItem>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8"
+            onClick={() => {
+              startTransition(() => {
+                router.push(
+                  `${pathname}?${createQueryString({
+                    page: Number(page) - 1,
+                    perPage: perPage ?? null,
+                  })}`
+                );
+              });
+            }}
+            disabled={Number(page) === 1 || isPending}
+          >
+            <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+            <span className="sr-only">Previous page</span>
+          </Button>
+        </PaginationItem>
+        <PaginationItem className="space-x-1">
+          {paginationRange.map((pageNumber, i) =>
+            pageNumber === "..." ? (
+              <Button
+                aria-label="Page separator"
+                key={i}
+                variant="outline"
+                size="icon"
+                className="h-8 w-8"
+                disabled
+              >
+                ...
+              </Button>
+            ) : (
+              <Button
+                aria-label={`Page ${pageNumber}`}
+                key={i}
+                variant={Number(page) === pageNumber ? "default" : "outline"}
+                size="icon"
+                className="h-8 w-8"
+                onClick={() => {
+                  startTransition(() => {
+                    router.push(
+                      `${pathname}?${createQueryString({
+                        page: pageNumber,
+                        perPage: perPage ?? null,
+                      })}`
+                    );
+                  });
+                }}
+                disabled={isPending}
+              >
+                {pageNumber}
+              </Button>
+            )
+          )}
+        </PaginationItem>
+
+        <PaginationItem>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8"
+            onClick={() => {
+              startTransition(() => {
+                router.push(
+                  `${pathname}?${createQueryString({
+                    page: Number(page) + 1,
+                    perPage: perPage ?? null,
+                  })}`
+                );
+              });
+            }}
+            disabled={Number(page) === (pageCount ?? 10) || isPending}
+          >
+            <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+            <span className="sr-only">Next page</span>
+          </Button>
+        </PaginationItem>
+        <PaginationItem>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8"
+            onClick={() => {
+              router.push(
+                `${pathname}?${createQueryString({
+                  page: pageCount ?? 10,
+                  perPage: perPage ?? null,
+                })}`
+              );
+            }}
+            disabled={Number(page) === (pageCount ?? 10) || isPending}
+          >
+            <DoubleArrowRightIcon className="h-5 w-5" aria-hidden="true" />
+            <span className="sr-only">Last page</span>
+          </Button>
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
   );
 };
 

@@ -5,7 +5,7 @@ import { ArchiveMonth, BlogPost, CategoryCount, SidebarData } from "../types";
 export const fetchSidebarData = async (): Promise<SidebarData> => {
   try {
     const response = await microCmsClient.getList<BlogPost>({
-      endpoint: "blogs",
+      endpoint: "blog",
       queries: {
         orders: "-publishedAt",
       },

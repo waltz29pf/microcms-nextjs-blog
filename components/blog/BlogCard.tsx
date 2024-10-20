@@ -18,7 +18,7 @@ const BlogCard = ({ blogPost, isRanking }: BlogItemProps) => {
   return (
     <article>
       <Card className="group overflow-hidden">
-        <Link href={`/blogs/${id}`} className="block h-full">
+        <Link href={`/blog/${id}`} className="block h-full">
           <CardHeader className="p-0">
             <div className="aspect-video relative overflow-hidden">
               <Image
