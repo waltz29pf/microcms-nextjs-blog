@@ -1,4 +1,4 @@
-import { profileImage, profileName } from "@/app/constants/profileInfo";
+import { PROFILE } from "@/app/constants/profileInfo";
 import { BlogPost } from "@/app/types";
 import { format } from "date-fns";
 import Image from "next/image";
@@ -50,7 +50,7 @@ const BlogItem = ({ blogPost, isRanking }: BlogItemProps) => {
           <CardFooter className="p-4 pt-0">
             <div className="flex items-center gap-2">
               <Image
-                src={profileImage}
+                src={PROFILE.IMAGE_PATH}
                 width={24}
                 height={24}
                 alt="profile"
@@ -58,7 +58,7 @@ const BlogItem = ({ blogPost, isRanking }: BlogItemProps) => {
                 priority={false}
               />
               <div className="flex flex-col text-xs text-gray-500">
-                <span>{profileName}</span>
+                <span>{PROFILE.NAME}</span>
                 <time dateTime={createdAt}>{formattedDate}</time>
               </div>
             </div>
