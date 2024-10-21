@@ -39,12 +39,17 @@ export default function Sidebar() {
               <AvatarFallback>わるつ</AvatarFallback>
             </Avatar>
           </Link>
-          <h2 className="font-bold text-xl mt-4">わるつ</h2>
+          <div className="flex flex-col gap-0">
+            <h2 className="font-bold text-xl mt-4">わるつ</h2>
+            <span className="text-sm">Web Developer</span>
+          </div>
         </CardHeader>
         <CardContent>
           <p className="text-sm">
-            Web系エンジニア2年目。普段はReact | Next.js | Ruby on
-            Railsをメインに個人開発しています。フロントエンドが得意です。
+            Web系エンジニア2年目。独学▶︎自社・受託開発会社▶︎フリーランス。普段はReact
+            | Next.js | Ruby on
+            Railsをメインに個人開発しています。フロントエンドが得意です。AWS
+            SAAを保有。東京都在住。
           </p>
         </CardContent>
         <CardFooter className="justify-center gap-2">
@@ -52,7 +57,6 @@ export default function Sidebar() {
             href={PROFILE.SOCIAL_LINKS.X}
             icon={<FaXTwitter />}
             label="Xプロフィールへ"
-            
           />
           <SocialLink
             href={PROFILE.SOCIAL_LINKS.GITHUB}
