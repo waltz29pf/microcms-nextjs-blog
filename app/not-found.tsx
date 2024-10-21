@@ -14,7 +14,7 @@ const NotFound = () => {
         <p className="mt-2 text-gray-500 mb-4">
           申し訳ありません。ページが見つかりませんでした。
         </p>
-        <Button onClick={() => router.push("/")}>ホームに戻る</Button>
+        <Button onClick={() => router.push("/")}>Homeに戻る</Button>
       </div>
     </div>
   );

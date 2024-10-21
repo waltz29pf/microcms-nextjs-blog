@@ -30,11 +30,11 @@ const BlogCard = ({ blogPost }: BlogItemProps) => {
             </div>
           </CardHeader>
           <div>
-            <CardContent className="px-4 py-2 space-y-2">
+            <CardContent className="px-5 py-3 space-y-2">
               <h2 className="font-bold text-xl">{title}</h2>
             </CardContent>
 
-            <CardFooter className="p-4 pt-0 flex items-center justify-between">
+            <CardFooter className="p-5 pt-0 flex items-center justify-between">
               <div className="flex items-center gap-1">
                 <Image
                   src={PROFILE.IMAGE_PATH}

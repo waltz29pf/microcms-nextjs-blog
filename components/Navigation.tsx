@@ -34,7 +34,9 @@ const Navigation = () => {
                     <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
                         className={navigationMenuTriggerStyle()}
+                        aria-label={`Navigate to ${item.title}`}
                       >
+                        {item.icon && <item.icon className="mr-1" />}
                         {item.title}
                       </NavigationMenuLink>
                     </Link>

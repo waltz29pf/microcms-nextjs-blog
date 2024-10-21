@@ -17,8 +17,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     const blogPost = await fetchBlogPostById(params.blogId);
     let relatedBlogs: BlogPost[] = [];
 
-    // 同じカテゴリのブログを取得;
-    if (blogPost?.category) {
+    if (blogPost.category) {
       relatedBlogs = await fetchRelatedBlogPosts(
         blogPost.category.id,
         params.blogId

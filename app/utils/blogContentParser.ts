@@ -37,22 +37,32 @@ export function parseContent(content: string): string {
   });
 
   // その他の要素にスタイルを適用
-  $("code").addClass("bg-gray-100 py-1 px-2 text-sm");
-  $("p").addClass("my-5");
-  $("h1").addClass("text-3xl font-bold my-7 border-b pb-2");
-  $("h2").addClass("text-2xl font-bold my-7");
-  $("h3").addClass("text-xl font-bold my-6");
-  $("h4").addClass("text-lg font-bold my-5");
-  $("h5").addClass("text-md font-bold my-5");
-  $("ul").addClass("list-disc ml-5 my-5");
-  $("ol").addClass("list-decimal ml-5 my-5");
-  $("blockquote").addClass("border-l-4 pl-4 italic my-5");
-  $("table").addClass("table-auto border-collapse border my-5");
-  $("th, td").addClass("border px-4 py-1");
-  $("th").addClass("bg-gray-50");
-  $("a").addClass("text-blue-500 underline");
+  $("code").addClass("bg-gray-100 rounded dark:bg-gray-00 py-1 px-2 text-sm");
+  $("p").addClass("my-5 dark:text-gray-300");
+  $("h1").addClass(
+    "text-3xl font-bold my-7 border-b pb-2 dark:text-white dark:border-gray-700"
+  );
+  $("h2").addClass(
+    "pl-5 rounded text-2xl font-bold my-7 bg-gray-200 py-5 dark:text-gray-300 dark:bg-gray-700"
+  );
+  $("h3").addClass(
+    "pl-4 border-l-4 border-gray-700 border- text-xl font-bold my-6 py-2 dark:text-gray-300"
+  );
+  $("h4").addClass("text-lg font-bold my-5 dark:text-white");
+  $("h5").addClass("text-md font-bold my-5 dark:text-white");
+  $("ul").addClass("list-disc ml-5 my-5 dark:text-gray-300");
+  $("ol").addClass("list-decimal ml-5 my-5 dark:text-gray-300");
+  $("blockquote").addClass(
+    "border-l-4 pl-4 py-5 italic my-5 dark:text-gray-300 dark:border-gray-600"
+  );
+  $("table").addClass(
+    "table-auto border-collapse border my-5 dark:border-gray-700"
+  );
+  $("th, td").addClass("border px-4 py-1 dark:border-gray-700");
+  $("th").addClass("bg-gray-50 dark:bg-gray-800 dark:text-white");
+  $("a").addClass("text-blue-500 underline dark:text-blue-400");
   $("img").addClass("my-5");
-  $("hr").addClass("my-5");
+  $("hr").addClass("my-5 dark:border-gray-700");
 
   return $.html();
 }

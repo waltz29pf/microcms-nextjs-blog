@@ -4,6 +4,7 @@ import { PROFILE } from "@/app/constants/profileInfo";
 import { BlogPost } from "@/app/types";
 import { format } from "date-fns";
 import Image from "next/image";
+import { Separator } from "../ui/separator";
 import BlogCard from "./BlogCard";
 
 interface BlogDetailProps {
@@ -15,16 +16,16 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
   const formattedDate = format(new Date(blogPost.createdAt), "yyyy/MM/dd");
 
   return (
-    <article>
-      <div className="space-y-10 ">
+    <article className="px-10 pb-8 rounded-md dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+      <div className="space-y-10">
         <div className="space-y-8">
           <div className="aspect-video relative overflow-hidden">
             <Image
               src={blogPost.image.url}
               width={768}
               height={432}
-              alt="thumbnail"
-              className="object-cover"
+              alt={blogPost.title}
+              className="object-cover rounded"
               priority={false}
             />
           </div>
@@ -50,11 +51,12 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
             </div>
           </div>
         </div>
-
+        <Separator />
         <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
 
         {relatedBlogs.length > 0 && (
           <div>
+            <Separator />
             <div className="font-bold border-l-4 border-black pl-2">
               こんな記事も読まれています
             </div>

@@ -7,12 +7,12 @@ interface LayoutWithSidebarProps {
 
 const LayoutWithSidebar = ({ children }: LayoutWithSidebarProps) => {
   return (
-    <div className="mx-auto max-w-screen-lg px-2 my-10 ">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-        <main className="col-span-1 md:col-span-2">{children}</main>
-        <div className="col-span-1">
+    <div className="container mx-auto my-10 px-4">
+      <div className="flex flex-col md:flex-row justify-center items-start gap-8">
+        <main className="w-full md:flex-grow md:max-w-[788px]">{children}</main>
+        <aside className="w-full md:w-[300px] lg:shrink-0">
           <Sidebar />
-        </div>
+        </aside>
       </div>
     </div>
   );

@@ -14,27 +14,11 @@ export const fetchBlogPosts = async ({
     const response = await microCmsClient.getList<BlogPost>({
       endpoint: "blog",
       queries: {
-        limit: limit || 10,
-        offset: offset || 0,
         orders: "-publishedAt",
       },
     });
 
-    // コンテンツをパース
-    const parsedContents = response.contents.map((blogPost) => {
-      if (
-        blogPost.content &&
-        typeof blogPost.content === "string" &&
-        blogPost.content.trim() !== ""
-      ) {
-        return {
-          ...blogPost,
-          content: parseContent(blogPost.content),
-        };
-      }
-      return blogPost;
-    });
-    return { contents: parsedContents, totalCount: response.totalCount };
+    return { contents: response.contents, totalCount: response.totalCount };
   } catch (error) {
     console.error("Failed to fetch blog posts:", error);
     throw new Error(
@@ -52,7 +36,10 @@ export const fetchBlogPostById = async (
       endpoint: "blog",
       contentId,
     });
-    return contents;
+    return {
+      ...contents,
+      content: parseContent(contents.content),
+    };
   } catch (error) {
     console.error(`Failed to fetch blog post by ${contentId}:`, error);
     throw new Error(
@@ -135,6 +122,7 @@ export const fetchBlogPostsByArchive = async ({
         orders: "-publishedAt",
       },
     });
+
     return {
       archiveBlogPosts: response.contents,
       totalCount: response.totalCount,

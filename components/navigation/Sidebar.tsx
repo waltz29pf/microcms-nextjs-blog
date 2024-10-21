@@ -73,7 +73,9 @@ export default function Sidebar() {
         </CardHeader>
         <CardContent>
           {isLoading ? (
-            <div className="p-3 animate-pulse">Loading...</div>
+            <div className="flex itmes-center justify-center animate-pulse">
+              Loading...
+            </div>
           ) : (
             categoryCounts.map((category, index, array) => (
               <Link
