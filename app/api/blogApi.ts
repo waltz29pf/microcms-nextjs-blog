@@ -15,6 +15,8 @@ export const fetchBlogPosts = async ({
       endpoint: "blog",
       queries: {
         orders: "-publishedAt",
+        limit: limit || 100,
+        offset: offset || 0,
       },
     });
 
