@@ -29,14 +29,15 @@ const GitHubProfile = () => {
           </div>
         </div>
         <div className="flex flex-col items-center gap-4">
-          <Image
-            src="/profile.jpg"
-            alt="GitHubProfile"
-            width={360}
-            height={360}
-            priority
-            className="w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full object-cover"
-          />
+          <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full overflow-hidden">
+            <Image
+              src="/profile.jpg"
+              alt="GitHubProfile"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
           <Link
             href={`https://github.com/${githubName}`}
             target="_blank"
