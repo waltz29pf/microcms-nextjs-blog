@@ -6,10 +6,9 @@ import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 interface BlogItemProps {
   blogPost: BlogPost;
-  isRanking?: boolean;
 }
 
-const BlogCard = ({ blogPost, isRanking }: BlogItemProps) => {
+const BlogCard = ({ blogPost }: BlogItemProps) => {
   const { id, title, image, category, createdAt } = blogPost;
 
   const formattedDate = formatDate(createdAt);

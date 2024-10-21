@@ -20,9 +20,6 @@ export interface BlogPost {
     url: string;
   };
   category: Category;
-  ranking?: number;
-  isRecommended: boolean;
-  isSpecial: boolean;
   createdAt: string;
   publishedAt: string;
   updatedAt: string;

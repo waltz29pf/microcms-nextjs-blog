@@ -29,12 +29,6 @@ export const BlogListItem = ({ blog }: Props) => {
             >
               {blog.category.name}
             </div>
-
-            {blog.ranking && blog.ranking && (
-              <div className="absolute top-0 right-0 bg-white py-2 px-3 font-bold">
-                {blog.ranking}
-              </div>
-            )}
           </div>
           <div className="p-4">
             <div>{blog.title}</div>
