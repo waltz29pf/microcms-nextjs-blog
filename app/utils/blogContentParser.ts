@@ -43,10 +43,10 @@ export function parseContent(content: string): string {
     "text-3xl font-bold my-7 border-b pb-2 dark:text-white dark:border-gray-700"
   );
   $("h2").addClass(
-    "pl-5 rounded text-2xl font-bold my-7 bg-gray-200 py-5 dark:text-gray-300 dark:bg-gray-700"
+    "pl-5 rounded text-2xl font-bold my-7 py-3 border-b-2 dark:text-gray-300"
   );
   $("h3").addClass(
-    "pl-4 border-l-4 border-gray-700 border- text-xl font-bold my-6 py-2 dark:text-gray-300"
+    "pl-4 border-l-4 border-gray-300 text-xl font-bold my-6 py-2 dark:text-gray-300"
   );
   $("h4").addClass("text-lg font-bold my-5 dark:text-white");
   $("h5").addClass("text-md font-bold my-5 dark:text-white");
