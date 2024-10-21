@@ -3,7 +3,7 @@ import { ImProfile } from "react-icons/im";
 import { RiArticleLine } from "react-icons/ri";
 
 export const NAVIGATION_ITEMS = [
-  { title: "Home", href: "/blog", icon: FiHome },
+  { title: "Home", href: "/", icon: FiHome },
   { title: "About", href: "/about", icon: ImProfile },
   { title: "Blog", href: "/blog", icon: RiArticleLine },
 ] as const;

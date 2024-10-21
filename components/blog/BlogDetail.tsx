@@ -9,7 +9,7 @@ import BlogCard from "./BlogCard";
 
 interface BlogDetailProps {
   blogPost: BlogPost;
-  relatedBlogs: BlogPost[];
+  relatedBlogs?: BlogPost[];
 }
 
 const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
@@ -54,7 +54,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
         <Separator />
         <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
 
-        {relatedBlogs.length > 0 && (
+        {relatedBlogs && relatedBlogs.length > 0 && (
           <div>
             <Separator />
             <div className="font-bold border-l-4 border-black pl-2">

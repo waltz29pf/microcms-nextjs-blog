@@ -1,9 +1,7 @@
+import GitHubProfile from "@/components/layout/GitHubProfile";
+
 const MainPage = () => {
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div>MainPage</div>
-    </div>
-  );
+  return <GitHubProfile />;
 };
 
 export default MainPage;
