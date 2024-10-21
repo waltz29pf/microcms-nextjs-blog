@@ -14,7 +14,7 @@ const BlogList = ({ blogPosts, pageCount }: BlogListProps) => {
   }
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 ">
         {blogPosts.map((blogPost) => (
           <BlogCard key={blogPost.id} blogPost={blogPost} />
         ))}

@@ -16,7 +16,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
 
   return (
     <article>
-      <div className="space-y-10">
+      <div className="space-y-10 ">
         <div className="space-y-8">
           <div className="aspect-video relative overflow-hidden">
             <Image

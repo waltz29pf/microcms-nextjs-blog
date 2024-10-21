@@ -8,7 +8,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="flex min-h-screen flex-col">
       <Navigation />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow bg-gray-100">{children}</main>
       <Footer />
     </div>
   );
