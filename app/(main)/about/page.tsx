@@ -1,16 +1,14 @@
 import fetchAboutInfo from "@/app/api/aboutApi";
 import AboutDetail from "@/components/about/AboutDetail";
-import LayoutWithSidebar from "@/components/layout/LayoutWithSIdebar";
-
 export const revalidate = 60;
 
 const AboutPage = async () => {
   const aboutInfo = await fetchAboutInfo();
 
   return (
-    <LayoutWithSidebar>
+    <div className="container mx-auto max-w-[690px] py-12 px-4 ">
       <AboutDetail aboutInfo={aboutInfo} />
-    </LayoutWithSidebar>
+    </div>
   );
 };
 

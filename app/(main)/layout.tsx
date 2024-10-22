@@ -1,17 +1,10 @@
-import Footer from "@/components/layout/footer/Footer";
-import NavBar from "@/components/NavBar";
+import TransitionProvider from "@/components/layout/TransitionProvider";
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 const MainLayout = ({ children }: MainLayoutProps) => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <NavBar />
-      <main className="flex-grow">{children}</main>
-      <Footer />
-    </div>
-  );
+  return <TransitionProvider>{children}</TransitionProvider>;
 };
 
 export default MainLayout;

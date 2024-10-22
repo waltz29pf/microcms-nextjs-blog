@@ -1,7 +1,12 @@
-import GitHubProfile from "@/components/layout/GitHubProfile";
+import Profile from "@/components/layout/Profile";
 
 const MainPage = () => {
-  return <GitHubProfile />;
+  return (
+    <div>
+      <Profile />
+      
+    </div>
+  );
 };
 
 export default MainPage;
