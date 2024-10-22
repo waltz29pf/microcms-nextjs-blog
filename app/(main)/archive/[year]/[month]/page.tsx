@@ -1,8 +1,8 @@
-import { fetchBlogPostsByArchive } from "@/app/api/blogApi";
+import ArchiveBlogList from "@/app/components/features/archive/ArchiveBlogList";
+import LayoutWithSidebar from "@/app/components/layout/LayoutWithSidebar";
+import { fetchBlogPostsByArchive } from "@/app/lib/api/blog";
+import { blogPerPage } from "@/app/lib/utils";
 import Loading from "@/app/loading";
-import ArchiveBlogList from "@/components/archive/ArchiveBlogList";
-import LayoutWithSidebar from "@/components/layout/LayoutWithSIdebar";
-import { blogPerPage } from "@/lib/utils";
 import { Suspense } from "react";
 
 export const revalidate = 0;

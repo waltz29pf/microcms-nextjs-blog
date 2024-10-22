@@ -1,5 +1,5 @@
-import fetchAboutInfo from "@/app/api/aboutApi";
-import AboutDetail from "@/components/about/AboutDetail";
+import AboutDetail from "@/app/components/features/about/AboutDetail";
+import fetchAboutInfo from "@/app/lib/api/about";
 export const revalidate = 60;
 
 const AboutPage = async () => {

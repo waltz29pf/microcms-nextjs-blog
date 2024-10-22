@@ -1,4 +1,4 @@
-import TransitionProvider from "@/components/layout/TransitionProvider";
+import TransitionProvider from "@/app/components/layout/TransitionProvider";
 
 interface MainLayoutProps {
   children: React.ReactNode;

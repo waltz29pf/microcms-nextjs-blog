@@ -1,10 +1,9 @@
-import Profile from "@/components/layout/Profile";
+import Profile from "@/app/components/layout/Profile";
 
 const MainPage = () => {
   return (
     <div>
       <Profile />
-      
     </div>
   );
 };

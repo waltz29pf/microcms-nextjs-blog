@@ -1,8 +1,8 @@
-import QueryProvider from "@/components/providers/QueryProvider";
-import { ThemeProvider } from "@/components/theme-provider";
+import QueryProvider from "@/app/components/providers/QueryProvider";
+import { ThemeProvider } from "@/app/components/theme-provider";
+import "@/app/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 import { M_PLUS_1 } from "next/font/google";
-import "./globals.css";
 
 const mPlus1 = M_PLUS_1({
   weight: ["400", "700", "900"],

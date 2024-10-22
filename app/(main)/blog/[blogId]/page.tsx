@@ -1,9 +1,9 @@
-import { fetchBlogPostById, fetchRelatedBlogPosts } from "@/app/api/blogApi";
+import BlogDetail from "@/app/components/features/blog/BlogDetail";
 import Loading from "@/app/loading";
 import { BlogPost } from "@/app/types";
 
-import BlogDetail from "@/components/blog/BlogDetail";
-import LayoutWithSidebar from "@/components/layout/LayoutWithSIdebar";
+import LayoutWithSidebar from "@/app/components/layout/LayoutWithSidebar";
+import { fetchBlogPostById, fetchRelatedBlogPosts } from "@/app/lib/api/blog";
 import { Suspense } from "react";
 
 interface BlogDetailPageProps {

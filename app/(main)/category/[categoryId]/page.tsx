@@ -1,8 +1,8 @@
-import { fetchBlogPostsByCategory } from "@/app/api/blogApi";
+import CategoryBlogList from "@/app/components/features/category/CategoryBlogList";
+import LayoutWithSidebar from "@/app/components/layout/LayoutWithSidebar";
+import { fetchBlogPostsByCategory } from "@/app/lib/api/blog";
+import { blogPerPage } from "@/app/lib/utils";
 import Loading from "@/app/loading";
-import CategoryBlogList from "@/components/category/CategoryBlogList";
-import LayoutWithSidebar from "@/components/layout/LayoutWithSIdebar";
-import { blogPerPage } from "@/lib/utils";
 import { Suspense } from "react";
 
 interface CategoryPageProps {
