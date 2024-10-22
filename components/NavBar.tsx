@@ -5,7 +5,7 @@ import { GiMusicSpell } from "react-icons/gi";
 import BlogTitle from "./navigation/BlogTitle";
 import MobileMenu from "./navigation/MobileMenu";
 
-const Navigation = () => {
+const NavBar = () => {
   return (
     <header className="px-4 sm:px-8 py-4 shadow">
       <div className="flex items-center justify-between">
@@ -19,16 +19,15 @@ const Navigation = () => {
             <BlogTitle />
           </div>
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <nav aria-label="Main navigation" className="hidden md:block">
-            <ul className="flex space-x-4">
+            <ul className="flex space-x-6">
               {NAVIGATION_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className="flex items-center hover:text-gray-600"
                   >
-                    {item.icon && <item.icon className="mr-1" />}
                     {item.title}
                   </Link>
                 </li>
@@ -43,4 +42,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default NavBar;

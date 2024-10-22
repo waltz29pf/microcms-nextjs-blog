@@ -51,7 +51,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
             </div>
           </div>
         </div>
-        <Separator />
+
         <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
 
         {relatedBlogs && relatedBlogs.length > 0 && (

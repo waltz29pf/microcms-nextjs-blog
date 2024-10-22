@@ -1,14 +1,14 @@
 import Footer from "@/components/layout/footer/Footer";
-import Navigation from "@/components/Navigation";
+import NavBar from "@/components/NavBar";
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Navigation />
-      <main className="flex-grow bg-gray-100 dark:bg-gray-800">{children}</main>
+    <div className="flex flex-col min-h-screen">
+      <NavBar />
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   );
