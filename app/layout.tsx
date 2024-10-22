@@ -1,5 +1,5 @@
 import QueryProvider from "@/app/components/providers/QueryProvider";
-import { ThemeProvider } from "@/app/components/theme-provider";
+import { ThemeProvider } from "@/app/components/providers/theme-provider";
 import "@/app/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 import { M_PLUS_1 } from "next/font/google";

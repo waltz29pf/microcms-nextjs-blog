@@ -1,7 +1,7 @@
 "use client";
 
 import Footer from "@/app/components/layout/footer/Footer";
-import NavBar from "@/app/components/layout/Header/Header";
+import NavBar from "@/app/components/layout/header/Header";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
