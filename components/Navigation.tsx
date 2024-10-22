@@ -2,6 +2,7 @@ import { NAVIGATION_ITEMS } from "@/app/constants/navigationItems";
 import { ThemeToggle } from "@/components/navigation/ThemeToggle";
 import Link from "next/link";
 import { GiMusicSpell } from "react-icons/gi";
+import BlogTitle from "./navigation/BlogTitle";
 import MobileMenu from "./navigation/MobileMenu";
 
 const Navigation = () => {
@@ -15,10 +16,7 @@ const Navigation = () => {
               <span className="text-sm sm:text-base">WaltzTech</span>
               <span className="text-xs sm:text-sm">Web Developer</span>
             </div>
-            <span className="text-xl sm:text-2xl hidden sm:inline">|</span>
-            <span className="text-xl sm:text-2xl hidden sm:inline">
-              TechBlog
-            </span>
+            <BlogTitle />
           </div>
         </Link>
         <div className="flex items-center gap-2">
