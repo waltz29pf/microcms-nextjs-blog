@@ -1,4 +1,3 @@
-"use client";
 import {
   Avatar,
   AvatarFallback,
@@ -12,22 +11,14 @@ import {
 } from "@/app/components/ui/card";
 import { fetchSidebarData } from "@/app/lib/api/sidebar";
 import { PROFILE } from "@/app/lib/constants/profileInfo";
-import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import Link from "next/link";
+import { Suspense } from "react";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
 import { SocialLink } from "../../features/blog/SocialLink";
 
-export default function Sidebar() {
-  const { data: sidebarData, isLoading } = useQuery({
-    queryKey: ["sidebarData"],
-    queryFn: fetchSidebarData,
-    staleTime: 1000 * 60 * 5,
-    refetchOnWindowFocus: true,
-  });
-
-  const categoryCounts = sidebarData?.categoryCounts || [];
-  const archiveMonths = sidebarData?.archiveMonths || [];
+export default async function Sidebar(): Promise<JSX.Element> {
+  const { archiveMonths, categoryCounts } = await fetchSidebarData();
 
   return (
     <aside aria-label="プロフィール情報" className="space-y-4">
@@ -70,17 +61,13 @@ export default function Sidebar() {
       </Card>
 
       {/* カテゴリ */}
-      <Card className="overflow-hidden">
-        <CardHeader className="text-center">
-          <span className="font-bold">Category</span>
-        </CardHeader>
-        <CardContent>
-          {isLoading ? (
-            <div className="flex itmes-center justify-center animate-pulse">
-              Loading...
-            </div>
-          ) : (
-            categoryCounts.map((category, index, array) => (
+      <Suspense fallback={<div className="animate-pulse">Loading...</div>}>
+        <Card className="overflow-hidden">
+          <CardHeader className="text-center">
+            <span className="font-bold">Category</span>
+          </CardHeader>
+          <CardContent>
+            {categoryCounts.map((category, index, array) => (
               <Link
                 href={`/category/${category.id}`}
                 className={`py-2 flex items-center justify-between hover:text-gray-500 ${
@@ -91,21 +78,19 @@ export default function Sidebar() {
                 <span>{category.name}</span>
                 <span>{category.count}</span>
               </Link>
-            ))
-          )}
-        </CardContent>
-      </Card>
+            ))}
+          </CardContent>
+        </Card>
+      </Suspense>
 
       {/* アーカイブ */}
-      <Card>
-        <CardHeader className="text-center">
-          <span className="font-bold">Archive</span>
-        </CardHeader>
-        <CardContent>
-          {isLoading ? (
-            <div className="p-3 animate-pulse">Loading...</div>
-          ) : (
-            archiveMonths.map((archive, index, array) => {
+      <Suspense fallback={<div className="animate-pulse">Loading...</div>}>
+        <Card>
+          <CardHeader className="text-center">
+            <span className="font-bold">Archive</span>
+          </CardHeader>
+          <CardContent>
+            {archiveMonths.map((archive, index, array) => {
               return (
                 <Link
                   href={`/archive/${archive.year}/${archive.month}`}
@@ -123,10 +108,10 @@ export default function Sidebar() {
                   <span>{archive.count}</span>
                 </Link>
               );
-            })
-          )}
-        </CardContent>
-      </Card>
+            })}
+          </CardContent>
+        </Card>
+      </Suspense>
     </aside>
   );
 }

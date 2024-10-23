@@ -1,10 +1,8 @@
 import BlogList from "@/app/components/features/blog/BlogList";
-import Loading from "@/app/loading";
 
 import LayoutWithSidebar from "@/app/components/layout/LayoutWithSidebar";
 import { fetchBlogPosts } from "@/app/lib/api/blog";
 import { blogPerPage } from "@/app/lib/utils";
-import { Suspense } from "react";
 
 interface BlogPageProps {
   searchParams: {
@@ -22,11 +20,9 @@ export default async function BlogListPage({ searchParams }: BlogPageProps) {
     const pageCount = Math.ceil(totalCount / limit);
     return (
       <LayoutWithSidebar>
-        <Suspense fallback={<Loading />}>
-          <BlogList blogPosts={contents} pageCount={pageCount} />
-        </Suspense>
+        <BlogList blogPosts={contents} pageCount={pageCount} />
       </LayoutWithSidebar>
-    );
+  )
   } catch (error) {
     console.error("Failed to fetch blog list", error);
     return (

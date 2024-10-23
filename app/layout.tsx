@@ -1,4 +1,3 @@
-import QueryProvider from "@/app/components/providers/QueryProvider";
 import { ThemeProvider } from "@/app/components/providers/theme-provider";
 import "@/app/styles/globals.css";
 import type { Metadata, Viewport } from "next";
@@ -34,7 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <QueryProvider>{children}</QueryProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>
