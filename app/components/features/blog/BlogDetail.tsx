@@ -17,7 +17,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
   const formattedDate = format(new Date(blogPost.createdAt), "yyyy/MM/dd");
 
   return (
-    <article className="px-10 pb-8 rounded-md dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <article className="max-w-[708px] mx-auto my-10 px-10 pb-8 rounded-md dark:bg-gray-800 text-gray-800 dark:text-gray-100">
       <div className="space-y-10">
         <div className="space-y-8">
           <div className="aspect-video relative overflow-hidden">

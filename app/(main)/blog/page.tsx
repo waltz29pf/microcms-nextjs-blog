@@ -16,13 +16,20 @@ export default async function BlogListPage({ searchParams }: BlogPageProps) {
 
     const limit = typeof perPage === "string" ? parseInt(perPage) : blogPerPage;
     const offset = typeof page === "string" ? (parseInt(page) - 1) * limit : 0;
-    const { contents, totalCount } = await fetchBlogPosts({ limit, offset });
+    const { blogPosts, totalCount, archiveMonths, categoryCounts } =
+      await fetchBlogPosts({
+        limit,
+        offset,
+      });
     const pageCount = Math.ceil(totalCount / limit);
     return (
-      <LayoutWithSidebar>
-        <BlogList blogPosts={contents} pageCount={pageCount} />
+      <LayoutWithSidebar
+        archiveMonths={archiveMonths}
+        categoryCounts={categoryCounts}
+      >
+        <BlogList blogPosts={blogPosts} pageCount={pageCount} />
       </LayoutWithSidebar>
-  )
+    );
   } catch (error) {
     console.error("Failed to fetch blog list", error);
     return (

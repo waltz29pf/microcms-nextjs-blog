@@ -2,7 +2,6 @@ import BlogDetail from "@/app/components/features/blog/BlogDetail";
 import Loading from "@/app/loading";
 import { BlogPost } from "@/app/types";
 
-import LayoutWithSidebar from "@/app/components/layout/LayoutWithSidebar";
 import { fetchBlogPostById, fetchRelatedBlogPosts } from "@/app/lib/api/blog";
 import { Suspense } from "react";
 
@@ -25,11 +24,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     }
 
     return (
-      <LayoutWithSidebar>
-        <Suspense fallback={<Loading />}>
-          <BlogDetail blogPost={blogPost} relatedBlogs={relatedBlogs} />
-        </Suspense>
-      </LayoutWithSidebar>
+      <Suspense fallback={<Loading />}>
+        <BlogDetail blogPost={blogPost} relatedBlogs={relatedBlogs} />
+      </Suspense>
     );
   } catch (error) {
     console.error("Failed to fetch blog detail:", error);

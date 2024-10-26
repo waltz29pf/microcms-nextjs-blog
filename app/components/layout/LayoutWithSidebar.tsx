@@ -1,14 +1,21 @@
 "use client";
 
 import Sidebar from "@/app/components/layout/navigation/Sidebar";
+import { ArchiveMonth, CategoryCount } from "@/app/types";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface LayoutWithSidebarProps {
   children: ReactNode;
+  categoryCounts?: CategoryCount[];
+  archiveMonths?: ArchiveMonth[];
 }
 
-const LayoutWithSidebar = ({ children }: LayoutWithSidebarProps) => {
+const LayoutWithSidebar = ({
+  categoryCounts = [],
+  archiveMonths = [],
+  children,
+}: LayoutWithSidebarProps) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,7 +55,10 @@ const LayoutWithSidebar = ({ children }: LayoutWithSidebarProps) => {
           className="w-full md:w-[300px] lg:shrink-0"
           variants={itemVariants}
         >
-          <Sidebar />
+          <Sidebar
+            categoryCounts={categoryCounts}
+            archiveMonths={archiveMonths}
+          />
         </motion.aside>
       </div>
     </motion.div>

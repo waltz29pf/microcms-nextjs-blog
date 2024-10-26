@@ -9,17 +9,23 @@ import {
   CardFooter,
   CardHeader,
 } from "@/app/components/ui/card";
-import { fetchSidebarData } from "@/app/lib/api/sidebar";
 import { PROFILE } from "@/app/lib/constants/profileInfo";
+import { ArchiveMonth, CategoryCount } from "@/app/types";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Suspense } from "react";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
 import { SocialLink } from "../../features/blog/SocialLink";
 
-export default async function Sidebar(): Promise<JSX.Element> {
-  const { archiveMonths, categoryCounts } = await fetchSidebarData();
+interface SidebarProps {
+  archiveMonths: ArchiveMonth[];
+  categoryCounts: CategoryCount[];
+}
 
+export default async function Sidebar({
+  archiveMonths,
+  categoryCounts,
+}: SidebarProps): Promise<JSX.Element> {
   return (
     <aside aria-label="プロフィール情報" className="space-y-4">
       <Card className="overflow-hidden">
