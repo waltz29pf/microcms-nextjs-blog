@@ -1,7 +1,7 @@
 "use client";
 import SkillCard from "@/app/components/features/profile/SkillCard";
 import { Button } from "@/app/components/ui/button";
-import { githubUrl } from "@/app/lib/constants/githubInfo";
+import { githubUrl, xUrl } from "@/app/lib/constants/githubInfo";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
