@@ -65,11 +65,7 @@ const Profile = () => {
                 variant="ghost"
                 className="flex-1 ring-1 ring-black"
               >
-                <Link
-                  href={githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href={xUrl} target="_blank" rel="noopener noreferrer">
                   <FaXTwitter className="w-5 h-5" />
                   <span>View My X</span>
                 </Link>
