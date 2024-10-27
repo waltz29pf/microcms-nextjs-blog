@@ -15,7 +15,7 @@ const TransitionProvider = ({ children }: TransitionProviderProps) => {
     <AnimatePresence mode="wait">
       <motion.div
         key={pathName}
-        className="flex flex-col  min-h-screen bg-gradient-to-b from-blue-100 to-red-100"
+        className="flex flex-col  min-h-screen bg-gradient-to-b from-blue-100 to-red-100 "
       >
         <motion.div
           className="w-screen h-screen fixed bg-gradient-to-b from-blue-200 to-red-200 z-20 rounded-b-full"
@@ -24,7 +24,7 @@ const TransitionProvider = ({ children }: TransitionProviderProps) => {
           transition={{ duration: 0.5, ease: "easeOut" }}
         />
         <motion.div
-          className="fixed m-auto top-0 bottom-0 left-0 right-0 text-8xl font-bold text-black  cursor-default z-30 w-fit h-fit"
+          className="fixed m-auto top-0 bottom-0 left-0 right-0 text-8xl font-bold text-black  cursor-default z-30 w-fit h-fit "
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           exit={{ opacity: 0 }}
@@ -33,7 +33,7 @@ const TransitionProvider = ({ children }: TransitionProviderProps) => {
           {pathName.substring(1)}
         </motion.div>
         <motion.div
-          className="w-screen h-screen fixed bg-gradient-to-b from-blue-200 to-red-200 z-10 rounded-t-full bottom-0"
+          className="w-screen h-screen fixed bg-gradient-to-b from-blue-200 to-red-200 z-10 rounded-t-full bottom-0 "
           initial={{ height: "180vh" }}
           animate={{
             height: "0vh",
@@ -43,7 +43,7 @@ const TransitionProvider = ({ children }: TransitionProviderProps) => {
         />
         <NavBar />
 
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow dark:bg-gray-900">{children}</main>
         <Footer />
       </motion.div>
     </AnimatePresence>
