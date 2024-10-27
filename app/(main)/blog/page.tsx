@@ -1,8 +1,11 @@
+"use client";
 import BlogList from "@/app/components/features/blog/BlogList";
 
 import LayoutWithSidebar from "@/app/components/layout/LayoutWithSidebar";
-import { fetchBlogPosts } from "@/app/lib/api/blog";
+import { Button } from "@/app/components/ui/button";
+import { useBlogs } from "@/app/hooks/useBlogs";
 import { blogPerPage } from "@/app/lib/utils";
+import { useRouter } from "next/navigation";
 
 interface BlogPageProps {
   searchParams: {
@@ -10,34 +13,41 @@ interface BlogPageProps {
   };
 }
 
-export default async function BlogListPage({ searchParams }: BlogPageProps) {
-  try {
-    const { page, perPage } = searchParams;
+export default function BlogListPage({ searchParams }: BlogPageProps) {
+  const router = useRouter();
+  const { page, perPage } = searchParams;
+  const limit = typeof perPage === "string" ? parseInt(perPage) : blogPerPage;
+  const offset = typeof page === "string" ? (parseInt(page) - 1) * limit : 0;
+  const { data, isLoading, error } = useBlogs(limit, offset);
 
-    const limit = typeof perPage === "string" ? parseInt(perPage) : blogPerPage;
-    const offset = typeof page === "string" ? (parseInt(page) - 1) * limit : 0;
-    const { blogPosts, totalCount, archiveMonths, categoryCounts } =
-      await fetchBlogPosts({
-        limit,
-        offset,
-      });
-    const pageCount = Math.ceil(totalCount / limit);
-    return (
-      <LayoutWithSidebar
-        archiveMonths={archiveMonths}
-        categoryCounts={categoryCounts}
-      >
-        <BlogList blogPosts={blogPosts} pageCount={pageCount} />
-      </LayoutWithSidebar>
-    );
-  } catch (error) {
-    console.error("Failed to fetch blog list", error);
+  if (isLoading)
     return (
       <LayoutWithSidebar>
-        <div className="text-center mt-20">
-          ブログの取得に失敗しました。後でもう一度お試しください。
+        <div>Loading...</div>
+      </LayoutWithSidebar>
+    );
+  if (error)
+    return (
+      <LayoutWithSidebar>
+        <div>Error: {error.message}</div>
+      </LayoutWithSidebar>
+    );
+  if (!data || !data.blogPosts.length) {
+    return (
+      <LayoutWithSidebar>
+        <div className="text-center">
+          <h2>ブログ記事がありません</h2>
+          <Button onClick={() => router.push("/")}>Homeに戻る</Button>
         </div>
       </LayoutWithSidebar>
     );
   }
+
+  const pageCount = Math.ceil(data.totalCount / limit);
+
+  return (
+    <LayoutWithSidebar>
+      <BlogList blogPosts={data.blogPosts} pageCount={pageCount} />
+    </LayoutWithSidebar>
+  );
 }
