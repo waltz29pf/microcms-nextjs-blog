@@ -5,6 +5,7 @@ import { BlogPost } from "@/app/types";
 import { fetchBlogPostById, fetchRelatedBlogPosts } from "@/app/lib/api/blog";
 import { Suspense } from "react";
 
+export const revalidate = 300;
 interface BlogDetailPageProps {
   params: {
     blogId: string;

@@ -6,7 +6,7 @@ import { Button } from "@/app/components/ui/button";
 import { useBlogs } from "@/app/hooks/useBlogs";
 import { blogPerPage } from "@/app/lib/utils";
 import { useRouter } from "next/navigation";
-
+export const revalidate = 300;
 interface BlogPageProps {
   searchParams: {
     [key: string]: string | undefined;
