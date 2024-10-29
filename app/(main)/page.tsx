@@ -1,11 +1,5 @@
 import Profile from "@/app/components/layout/Profile";
 
-const MainPage = () => {
-  return (
-    <div>
-      <Profile />
-    </div>
-  );
-};
+const MainPage = () => <Profile />;
 
 export default MainPage;

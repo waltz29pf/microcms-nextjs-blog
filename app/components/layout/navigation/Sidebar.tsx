@@ -27,7 +27,7 @@ interface SidebarProps {
 export default function Sidebar({
   archiveMonths,
   categoryCounts,
-}: SidebarProps): Promise<JSX.Element> {
+}: SidebarProps) {
   return (
     <aside aria-label="プロフィール情報" className="space-y-4">
       <Card className="overflow-hidden">
