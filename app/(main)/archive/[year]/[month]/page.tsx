@@ -5,7 +5,7 @@ import { blogPerPage } from "@/app/lib/utils";
 import Loading from "@/app/loading";
 import { Suspense } from "react";
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 interface ArchivePageProps {
   params: {
