@@ -7,7 +7,7 @@ import MobileMenu from "../navigation/MobileMenu";
 
 const Header = () => {
   return (
-    <header className="py-3 px-4 sm:px-8 shadow">
+    <header className="py-3 px-4 sm:px-8 shadow dark:bg-gray-800">
       <div className="flex items-center justify-between">
         {/* Logo */}
         <Link
