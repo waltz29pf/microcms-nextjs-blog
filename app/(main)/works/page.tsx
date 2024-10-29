@@ -12,9 +12,9 @@ const WorksPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1.4 }}
     >
-      <section className="min-h-screen container  py-10 mx-auto">
+      <section className="min-h-screen container px-4 md:px-0 py-10 mx-auto">
         <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
-          My Portfolio
+          My Works
         </h1>
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
           {portfolioItems.map((portfolioItem) => (

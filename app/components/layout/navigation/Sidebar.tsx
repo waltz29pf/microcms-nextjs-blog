@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Avatar,
   AvatarFallback,
@@ -22,7 +24,7 @@ interface SidebarProps {
   categoryCounts: CategoryCount[];
 }
 
-export default async function Sidebar({
+export default function Sidebar({
   archiveMonths,
   categoryCounts,
 }: SidebarProps): Promise<JSX.Element> {
