@@ -34,7 +34,7 @@ const Profile = () => {
               Hello, I am
             </h1>
             <div className="text-3xl md:text-6xl  font-bold tracking-tighter text-center md:text-left">
-              Web developer
+              Software Engineer
             </div>
             {/* Description */}
             <p className="text-base lg:text-lg text-gray-500 dark:text-gray-400 leading-relaxed text-center md:text-left">

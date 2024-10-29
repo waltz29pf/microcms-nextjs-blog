@@ -19,7 +19,7 @@ const Header = () => {
             <GiMusicSpell size={40} />
             <div className="flex flex-col items-center">
               <span className="text-sm sm:text-base">WaltzTech</span>
-              <span className="text-xs sm:text-sm">Web Developer</span>
+              <span className="text-xs sm:text-sm">Software Engineer</span>
             </div>
             <BlogTitle />
           </div>

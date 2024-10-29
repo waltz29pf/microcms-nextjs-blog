@@ -43,7 +43,7 @@ export default function Sidebar({
           </Link>
           <div className="flex flex-col gap-0">
             <h2 className="font-bold text-xl mt-4">わるつ</h2>
-            <span className="text-sm">Web Developer</span>
+            <span className="text-sm">Software Engineer</span>
           </div>
         </CardHeader>
         <CardContent>
