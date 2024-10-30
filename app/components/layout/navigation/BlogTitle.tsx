@@ -7,7 +7,7 @@ const BlogTitle = () => {
   const showBlogTitle = pathname === "/blog";
 
   return (
-    <span className="text-xl sm:text-2xl hidden sm:inline">
+    <span className="text-xl sm:text-xl hidden sm:inline">
       {showBlogTitle && "| TechBlog"}
     </span>
   );
