@@ -1,3 +1,4 @@
+"use client";
 import { fetchBlogPosts } from "@/app/lib/api/blog";
 import { ArchiveMonth, CategoryCount } from "@/app/types";
 import { useQuery } from "@tanstack/react-query";

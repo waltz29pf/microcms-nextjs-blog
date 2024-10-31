@@ -1,3 +1,4 @@
+"use client";
 import Sidebar from "@/app/components/layout/navigation/Sidebar";
 import { useSidebarData } from "@/app/hooks/useSidebarData";
 
@@ -22,7 +23,7 @@ const LayoutWithSidebar = ({ children }: LayoutWithSidebarProps) => {
         <main className="w-full md:flex-grow md:max-w-[788px]">{children}</main>
         <aside className="w-full md:w-[300px] lg:shrink-0">
           {isLoading ? (
-            <div>Loading...</div>
+            <div className="flex items-center justify-center">Loading...</div>
           ) : (
             <Sidebar
               categoryCounts={sidebarData.categoryCounts}
