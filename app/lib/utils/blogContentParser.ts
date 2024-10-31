@@ -38,7 +38,7 @@ export function parseContent(content: string): string {
 
   // その他の要素にスタイルを適用
   $("code").addClass("bg-gray-100 rounded dark:bg-gray-800 py-1 px-2 text-sm");
-  $("p").addClass("text-lg my-5 leading-8 dark:text-gray-200");
+  $("p").addClass("text-base sm:text-lg my-5 leading-8 dark:text-gray-200");
   $("h1").addClass(
     "text-3xl font-bold my-7 border-b pb-2 dark:text-white dark:border-gray-700"
   );

@@ -2,13 +2,11 @@
 
 import { NAVIGATION_ITEMS } from "@/app/lib/constants/navigationItems";
 import { cn } from "@/app/lib/utils";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { Sheet, SheetContent, SheetTrigger } from "../../ui/sheet";
-import { containerVariants, itemVariants } from "./constants/animations";
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,17 +31,11 @@ const MobileMenu = () => {
         className="w-[280px] p-0"
         onOpenAutoFocus={(event) => event.preventDefault()}
       >
-        <motion.nav
-          className="flex flex-col mt-12 p-4"
-          aria-label="mobile navigation"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.ul className="list-none p-0 m-0">
+        <nav className="flex flex-col mt-12 p-4" aria-label="mobile navigation">
+          <ul className="list-none p-0 m-0">
             <li>
               {NAVIGATION_ITEMS.map((item) => (
-                <motion.li key={item.href} variants={itemVariants}>
+                <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={handleLinkClick}
@@ -59,11 +51,11 @@ const MobileMenu = () => {
                   >
                     {item.title}
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </li>
-          </motion.ul>
-        </motion.nav>
+          </ul>
+        </nav>
       </SheetContent>
     </Sheet>
   );
