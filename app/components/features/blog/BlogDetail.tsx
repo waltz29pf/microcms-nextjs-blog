@@ -5,7 +5,6 @@ import { BlogPost } from "@/app/types";
 import { format } from "date-fns";
 import Image from "next/image";
 
-import { Separator } from "@/app/components/ui/separator";
 import BlogCard from "./BlogCard";
 
 interface BlogDetailProps {
@@ -54,8 +53,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
 
       {relatedBlogs && relatedBlogs.length > 0 && (
         <div>
-          <Separator />
-          <div className="font-bold border-l-4 border-black pl-2">
+          <div className="font-bold border-l-4 border-gray-300 pl-2">
             こんな記事も読まれています
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-8">
