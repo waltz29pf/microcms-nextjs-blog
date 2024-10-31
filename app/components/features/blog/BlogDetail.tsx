@@ -17,7 +17,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
   const formattedDate = format(new Date(blogPost.createdAt), "yyyy/MM/dd");
 
   return (
-    <article className="max-w-[708px] space-y-10 mx-auto my-10 px-4 md:px-10 pb-8 rounded-md dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <article className="bg-white text-gray-800 dark:bg-slate-900 dark:text-gray-200 max-w-[708px] space-y-10 mx-auto my-10 px-4 md:px-10 pb-8 rounded border border-gray-200 dark:border-gray-700">
       <div className="aspect-video relative overflow-hidden">
         <Image
           src={blogPost.image.url}
@@ -39,7 +39,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
             className="rounded-full"
             priority={false}
           />
-          <div className="flex flex-col text-xs text-gray-500">
+          <div className="flex flex-col text-xs text-gray-500 dark:text-gray-300">
             <span>{PROFILE.NAME}</span>
             <time dateTime={blogPost.createdAt}>{formattedDate}</time>
           </div>
