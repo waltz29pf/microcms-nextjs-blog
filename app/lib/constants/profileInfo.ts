@@ -3,6 +3,6 @@ export const PROFILE = {
   IMAGE_PATH: "/profile.jpg",
   SOCIAL_LINKS: {
     X: "https://x.com/waltz29pf",
-    GITHUB: "https://github.com/YQh9Mh3181jzEJ5",
+    GITHUB: "https://github.com/waltz29pf",
   },
 };
