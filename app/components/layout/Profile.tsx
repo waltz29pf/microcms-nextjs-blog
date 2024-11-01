@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Profile = () => {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto p-4 md:py-16">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="h-1/2 relative w-full md:w-1/2 aspect-square max-w-[500px] mx-auto">
           {/* Image Container */}

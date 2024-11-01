@@ -38,7 +38,9 @@ export function parseContent(content: string): string {
 
   // その他の要素にスタイルを適用
   $("code").addClass("bg-gray-100 rounded dark:bg-gray-800 py-1 px-2 text-sm");
-  $("p").addClass("text-base sm:text-lg my-5 leading-8 dark:text-gray-200");
+  $("p").addClass(
+    "text-base sm:text-lg mt-4 mb-8 leading-8 dark:text-gray-200"
+  );
   $("h1").addClass(
     "text-3xl font-bold my-7 border-b pb-2 dark:text-white dark:border-gray-700"
   );
@@ -50,9 +52,11 @@ export function parseContent(content: string): string {
   );
   $("h4").addClass("text-lg font-bold my-5 dark:text-white");
   $("h5").addClass("text-md font-bold my-5 dark:text-white");
-  $("ul").addClass("list-disc ml-5 my-5 leading-8 text-lg dark:text-gray-300");
+  $("ul").addClass(
+    "list-disc ml-5 my-2 sm:my-4 leading-7 text-base sm:text-lg dark:text-gray-300"
+  );
   $("ol").addClass(
-    "list-decimal ml-5 my-5 leading-8 text-lg dark:text-gray-300"
+    "list-decimal ml-5 my-2 sm:my-4 leading-7 text-base sm:text-lg dark:text-gray-300"
   );
   $("blockquote").addClass(
     "border-l-4 pl-4 py-5 italic my-5 dark:text-gray-300 dark:border-gray-600"
