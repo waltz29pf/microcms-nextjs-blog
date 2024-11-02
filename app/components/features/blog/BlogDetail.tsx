@@ -29,18 +29,20 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
       </div>
       <div className="space-y-4">
         <h2 className="font-bold text-3xl">{blogPost.title}</h2>
-        <div className="flex items-center gap-2">
-          <Image
-            src={PROFILE.IMAGE_PATH}
-            width={32}
-            height={32}
-            alt="profile"
-            className="rounded-full"
-            priority={false}
-          />
-          <div className="flex flex-col text-xs text-gray-500 dark:text-gray-300">
-            <span>{PROFILE.NAME}</span>
-            <time dateTime={blogPost.createdAt}>{formattedDate}</time>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Image
+              src={PROFILE.IMAGE_PATH}
+              width={32}
+              height={32}
+              alt="profile"
+              className="rounded-full"
+              priority={false}
+            />
+            <div className="flex flex-col text-xs text-gray-500 dark:text-gray-300">
+              <span>{PROFILE.NAME}</span>
+              <time dateTime={blogPost.createdAt}>{formattedDate}</time>
+            </div>
           </div>
 
           <span className="text-xs text-gray-700 bg-gray-200 p-3 py-1 rounded-full">
