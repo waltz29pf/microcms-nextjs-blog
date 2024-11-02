@@ -6,9 +6,6 @@ import Link from "next/link";
 const WorksPage = () => {
   return (
     <section className="min-h-screen container px-4 md:px-0 py-10 mx-auto">
-      <h1 className="text-3xl font-semibold  capitalize lg:text-4xl bg-clip-text bg-gradient-to-r from-sky-500 to-sky-300 text-transparent">
-        My Works
-      </h1>
       <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
         {portfolioItems.map((portfolioItem) => (
           <Card key={portfolioItem.id}>
