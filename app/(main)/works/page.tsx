@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 const WorksPage = () => {
   return (
-    <section className="min-h-screen container px-4 md:px-0 py-10 mx-auto">
-      <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+    <section className="min-h-screen container px-4 md:px-0 py-8 mx-auto">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         {portfolioItems.map((portfolioItem) => (
           <Card key={portfolioItem.id}>
             <CardContent className="p-0">

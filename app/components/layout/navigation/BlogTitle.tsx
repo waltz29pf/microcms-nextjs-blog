@@ -14,7 +14,7 @@ const BlogTitle = () => {
   if (!pageTitle) return null;
 
   return (
-    <span className="text-xl sm:text-xl hidden sm:inline bg-clip-text bg-gradient-to-r from-sky-500 to-sky-300 text-transparent">
+    <span className="text-xl sm:text-xl bg-clip-text bg-gradient-to-r from-sky-500 to-sky-300 text-transparent">
       {pageTitle}
     </span>
   );
