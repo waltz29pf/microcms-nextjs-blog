@@ -59,7 +59,7 @@ export function parseContent(content: string): string {
     "list-decimal ml-5 my-2 sm:my-4 leading-7 text-base sm:text-lg dark:text-gray-300"
   );
   $("blockquote").addClass(
-    "border-l-4 pl-4 py-5 italic my-5 dark:text-gray-300 dark:border-gray-600"
+    "border-l-4 pl-4 py-1 italic my-5 bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
   );
   $("table").addClass(
     "table-auto border-collapse border my-5 dark:border-gray-700"
