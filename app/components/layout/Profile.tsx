@@ -107,7 +107,7 @@ const Profile = () => {
                 </div>
                 {/* Job Description */}
                 <div className="p-3 text-sm italic">
-                  I am mainly involved in the frontend development ofNext.js. I
+                  I am mainly involved in the frontend development of Next.js. I
                   use rails for the backend.
                 </div>
                 {/* Job Date */}
@@ -150,7 +150,7 @@ const Profile = () => {
                   </div>
                   {/* Job Description */}
                   <div className="p-3 text-sm italic">
-                    I was mainly involved in the frontend development of react
+                    I was mainly involved in the frontend development of React
                     and eventually experienced the unit leader.
                   </div>
                   {/* Job Date */}
