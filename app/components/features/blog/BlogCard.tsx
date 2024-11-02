@@ -9,15 +9,16 @@ import { formatDate } from "@/app/lib/utils/dateUtils";
 import { BlogPost } from "@/app/types";
 import Image from "next/image";
 import Link from "next/link";
+import { CiClock2 } from "react-icons/ci";
 
 interface BlogItemProps {
   blogPost: BlogPost;
 }
 
 const BlogCard = ({ blogPost }: BlogItemProps) => {
-  const { id, title, image, category, createdAt } = blogPost;
+  const { id, title, image, category, publishedAt } = blogPost;
 
-  const formattedDate = formatDate(createdAt);
+  const formattedDate = formatDate(publishedAt);
 
   return (
     <article>
@@ -44,17 +45,18 @@ const BlogCard = ({ blogPost }: BlogItemProps) => {
               <div className="flex items-center gap-1">
                 <Image
                   src={PROFILE.IMAGE_PATH}
-                  width={24}
-                  height={24}
+                  width={28}
+                  height={28}
                   alt="profile"
                   className="rounded-full"
                   priority={false}
                 />
-                <div className="flex flex-col">
-                  <span className="text-xs text-gray-500">{PROFILE.NAME}</span>
-                  <time dateTime={createdAt} className="text-xs text-gray-500">
-                    {formattedDate}
-                  </time>
+                <div className="flex flex-col text-xs text-gray-500 dark:text-gray-300">
+                  <span>{PROFILE.NAME}</span>
+                  <div className="flex items-center gap-1">
+                    <CiClock2 />
+                    <time dateTime={blogPost.publishedAt}>{formattedDate}</time>
+                  </div>
                 </div>
               </div>
               <span className="text-xs text-gray-700 bg-gray-200 p-3 py-1 rounded-full">

@@ -4,7 +4,8 @@ import { PROFILE } from "@/app/lib/constants/profileInfo";
 import { BlogPost } from "@/app/types";
 import { format } from "date-fns";
 import Image from "next/image";
-
+import { CiClock2 } from "react-icons/ci";
+import { PiArrowsClockwise } from "react-icons/pi";
 import BlogCard from "./BlogCard";
 
 interface BlogDetailProps {
@@ -13,7 +14,14 @@ interface BlogDetailProps {
 }
 
 const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
-  const formattedDate = format(new Date(blogPost.createdAt), "yyyy/MM/dd");
+  const formattedPublishedDate = format(
+    new Date(blogPost.publishedAt),
+    "yyyy/MM/dd"
+  );
+  const formattedUpdatedDate = format(
+    new Date(blogPost.updatedAt),
+    "yyyy/MM/dd"
+  );
 
   return (
     <article className="bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-200 max-w-[708px] space-y-10 mx-auto my-10 px-4 md:px-10 pb-8 rounded border border-gray-200 dark:border-gray-700">
@@ -41,7 +49,20 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
             />
             <div className="flex flex-col text-xs text-gray-500 dark:text-gray-300">
               <span>{PROFILE.NAME}</span>
-              <time dateTime={blogPost.createdAt}>{formattedDate}</time>
+              <div className="flex items-center gap-1">
+                <CiClock2 />
+                <time dateTime={blogPost.publishedAt}>
+                  {formattedPublishedDate}
+                </time>
+                {blogPost.updatedAt !== blogPost.publishedAt && (
+                  <div className="flex items-center gap-1">
+                    <PiArrowsClockwise />
+                    <time dateTime={blogPost.updatedAt}>
+                      {formattedUpdatedDate}
+                    </time>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -58,7 +79,7 @@ const BlogDetail = ({ blogPost, relatedBlogs }: BlogDetailProps) => {
           <div className="font-bold border-l-4 border-gray-300 pl-2">
             こんな記事も読まれています
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
             {relatedBlogs.map((blogPost) => (
               <BlogCard key={blogPost.id} blogPost={blogPost} />
             ))}
