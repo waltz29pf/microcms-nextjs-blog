@@ -7,12 +7,13 @@ import { Suspense } from "react";
 
 export const revalidate = 300;
 interface BlogDetailPageProps {
-  params: {
+  params: Promise<{
     blogId: string;
-  };
+  }>;
 }
 
-export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
+export default async function BlogDetailPage(props: BlogDetailPageProps) {
+  const params = await props.params;
   try {
     const blogPost = await fetchBlogPostById(params.blogId);
     let relatedBlogs: BlogPost[] = [];

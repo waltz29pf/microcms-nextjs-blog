@@ -8,16 +8,18 @@ import { Suspense } from "react";
 export const revalidate = 60;
 
 interface ArchivePageProps {
-  params: {
+  params: Promise<{
     year: string;
     month: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     [key: string]: string | undefined;
-  };
+  }>;
 }
 
-const ArchivePage = async ({ params, searchParams }: ArchivePageProps) => {
+const ArchivePage = async (props: ArchivePageProps) => {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   const { year, month } = params;
   const { page, perPage } = searchParams;
   const limit = typeof perPage === "string" ? parseInt(perPage) : blogPerPage;

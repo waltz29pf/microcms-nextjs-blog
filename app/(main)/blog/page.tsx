@@ -1,4 +1,5 @@
-"use client";
+"use client";;
+import { use } from "react";
 import BlogList from "@/app/components/features/blog/BlogList";
 
 import LayoutWithSidebar from "@/app/components/layout/LayoutWithSidebar";
@@ -8,12 +9,13 @@ import { blogPerPage } from "@/app/lib/utils";
 import { useRouter } from "next/navigation";
 
 interface BlogPageProps {
-  searchParams: {
+  searchParams: Promise<{
     [key: string]: string | undefined;
-  };
+  }>;
 }
 
-export default function BlogListPage({ searchParams }: BlogPageProps) {
+export default function BlogListPage(props: BlogPageProps) {
+  const searchParams = use(props.searchParams);
   const router = useRouter();
   const { page, perPage } = searchParams;
   const limit = typeof perPage === "string" ? parseInt(perPage) : blogPerPage;
