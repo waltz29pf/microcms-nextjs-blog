@@ -48,10 +48,9 @@ export default function Sidebar({
         </CardHeader>
         <CardContent>
           <p className="text-sm">
-            Web系エンジニア2年目。独学▶︎自社・受託開発会社▶︎フリーランス。普段はReact
-            | Next.js | Ruby on
-            Railsをメインに個人開発しています。フロントエンドが得意です。AWS
-            SAAを保有。東京都在住。
+            東京都在住のWeb系エンジニア2年目。1000時間独学▶︎自社・受託開発会社▶︎フリーランス。普段はReact
+            | Next.jsをメインに個人開発しています。フロントエンドが得意です。AWS
+            SAA | Google AI Essentials保有。
           </p>
         </CardContent>
         <CardFooter className="justify-center gap-2">

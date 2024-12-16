@@ -7,15 +7,17 @@ import { Suspense } from "react";
 
 export const revalidate = 60;
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     categoryId: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     [key: string]: string | undefined;
-  };
+  }>;
 }
 
-const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
+const CategoryPage = async (props: CategoryPageProps) => {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   const { page, perPage } = searchParams;
   const { categoryId } = params;
   const limit = typeof perPage === "string" ? parseInt(perPage) : blogPerPage;
